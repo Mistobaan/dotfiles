@@ -1,15 +1,16 @@
 [user]
-	name = Fabrizio (Misto) Milo
-	email = mistobaan@gmail.com
+    name = Fabrizio (Misto) Milo
+    email = mistobaan@gmail.com
 
 [core]
-	excludesfile = ~/.gitignore_global
-	compress = 6
-	editor = subl -n -w
-	autocrlf = input
+    excludesfile = ~/.gitignore_global
+    compress = 6
+    editor = vim
+    autocrlf = input
 [diff]
-	tool = vimdiff
+    tool = vimdiff
     conflictstyle = diff3
+
 [difftool]
     prompt = false
 
@@ -18,13 +19,13 @@
     path = /Applications/Araxis Merge.app/Contents/Utilities/compare
 
 [github]
-	user = mistobaan@gmail.com
+    user = mistobaan@gmail.com
 
 [init]
     templatedir = ~/.git_template
 
 [merge]
-	tool = diffconflicts
+    tool = diffconflicts
 
     # Include the summary of merged commits into all newly created merge
     # commits. The newly created merge commit will contain a one-line summary
@@ -43,13 +44,13 @@
 
 [branch "develop"]
     mergeoptions=--no-ff    
-	
+    
 [color]
-	ui = auto
-	diff = auto
-	status = auto
-	branch = auto
-	interactive = auto
+    ui = auto
+    diff = auto
+    status = auto
+    branch = auto
+    interactive = auto
 
 [alias]
     # List all the authors in the branch
@@ -163,34 +164,35 @@
     cleanup = "!git branch --merged | egrep -v '^.*master' | egrep -v '^.*develop' | xargs -n 1 git branch -d"
 
 [credential]
-	helper = cache 
+    helper = cache 
 [difftool "sourcetree"]
-	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
-	path = 
+    cmd = opendiff \"$LOCAL\" \"$REMOTE\"
+    path = 
 
 [mergetool "sourcetree"]
-	cmd = /Applications/SourceTree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
-	trustExitCode = true
+    cmd = /Applications/SourceTree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
+    trustExitCode = true
 
 [filter "media"]
-	required = true
-	clean = git media clean %f
-	smudge = git media smudge %f
+    required = true
+    clean = git media clean %f
+    smudge = git media smudge %f
 [init]
-	templatedir = ~/.git_template
+    templatedir = ~/.git_template
 
 [http]
-	cookiefile = /Users/fabrizio/.gitcookies
+    cookiefile = /Users/fabrizio/.gitcookies
 [filter "lfs"]
-	clean = git lfs clean %f
-	smudge = git lfs smudge %f
-	required = true
+    clean = git-lfs clean -- %f
+    smudge = git-lfs smudge -- %f
+    required = true
+    process = git-lfs filter-process
 [filter "hawser"]
-	clean = git hawser clean %f
-	smudge = git hawser smudge %f
-	required = true
+    clean = git hawser clean %f
+    smudge = git hawser smudge %f
+    required = true
 [push]
-	default = simple
+    default = simple
 [difftool]
     dc = diff --cached
     ds = diff --cached -C --stat=160,120
@@ -256,27 +258,27 @@
     gofmt = !gofmt -w `git diff --name-only --cached --diff-filter=AM | grep \"\\.go$\"`
 
 [credential]
-	helper = osxkeychain
+    helper = osxkeychain
 
 
-	keepBackup = false
-	diffconflictstrustExitCode = true
+    keepBackup = false
+    diffconflictstrustExitCode = true
     prompt = false
 [difftool "Kaleidoscope"]
-	cmd = ksdiff --partial-changeset --relative-path \"$MERGED\" -- \"$LOCAL\" \"$REMOTE\"
+    cmd = ksdiff --partial-changeset --relative-path \"$MERGED\" -- \"$LOCAL\" \"$REMOTE\"
 [mergetool "Kaleidoscope"]
-	cmd = ksdiff --merge --output \"$MERGED\" --base \"$BASE\" -- \"$LOCAL\" --snapshot \"$REMOTE\" --snapshot
-	trustExitCode = true
+    cmd = ksdiff --merge --output \"$MERGED\" --base \"$BASE\" -- \"$LOCAL\" --snapshot \"$REMOTE\" --snapshot
+    trustExitCode = true
 [difftool "sourcetree"]
-	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
-	path = 
+    cmd = opendiff \"$LOCAL\" \"$REMOTE\"
+    path = 
 [mergetool "sourcetree"]
-	cmd = /Applications/SourceTree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
-	trustExitCode = true
+    cmd = /Applications/SourceTree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
+    trustExitCode = true
 [filter "media"]
-	clean = git-media-clean %f
-	smudge = git-media-smudge %f
+    clean = git-media-clean %f
+    smudge = git-media-smudge %f
 [push]
-	default = matching
+    default = matching
 [mergetool "diffconflicts"]
-	cmd = $HOME/dotfiles/bin/diffconflicts vim $BASE $LOCAL $REMOTE $MERGED
+    cmd = $HOME/dotfiles/bin/diffconflicts vim $BASE $LOCAL $REMOTE $MERGED

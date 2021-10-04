@@ -1,6 +1,0 @@
-2013-04-03 19:26:45.751 [IPEngineApp] Loading url_file u'/Users/fabrizio/.ipython/profile_default/security/ipcontroller-engine.json'
-2013-04-03 19:26:45.766 [IPEngineApp] Registering with controller at tcp://127.0.0.1:55172
-2013-04-03 19:26:45.886 [IPEngineApp] Using existing profile dir: u'/Users/fabrizio/.ipython/profile_default'
-2013-04-03 19:26:45.887 [IPEngineApp] Running file in user namespace: /Users/fabrizio/.ipython/profile_default/startup/00_math_import.py
-2013-04-03 19:26:48.281 [IPEngineApp] Running file in user namespace: /Users/fabrizio/.ipython/profile_default/startup/01_debug.py
-2013-04-03 19:26:48.283 [IPEngineApp] Completed registration with id 2
