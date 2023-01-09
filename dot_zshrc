@@ -8,7 +8,8 @@ export ZSH="$HOME/.oh-my-zsh"
 # load a random theme each time oh-my-zsh is loaded, in which case,
 # to know which specific one was loaded, run: echo $RANDOM_THEME
 # See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
-ZSH_THEME="robbyrussell"
+# ZSH_THEME="robbyrussell"
+ZSH_THEME="powerlevel9k/powerlevel9k"
 
 # Set list of themes to pick from when loading at random
 # Setting this variable when ZSH_THEME=random will cause zsh to load
@@ -141,4 +142,13 @@ func ec2start(){
 func ec2ls(){
 	echo "ls"
 }
+
+autoload add-zsh-hook
+if (($+WAYLAND_DISPLAY && $+commands[wl-copy])); then
+    .zle.copy-to-selection() wl-copy -p <<< $BUFFER
+elif (($+DISPLAY && $+commands[xsel])); then
+    .zle.copy-to-selection() xsel -i <<< $BUFFER
+fi
+(($+functions[.zle-copy-to-selection])) &&
+    add-zsh-hook preexec .zle.copy-to-selection
 
