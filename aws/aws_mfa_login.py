@@ -10,7 +10,6 @@ import argparse
 
 
 def main(args):
-
     stream = subprocess.check_output(
         shlex.split(f"aws iam list-mfa-devices --profile {args.profile} --output json")
     )

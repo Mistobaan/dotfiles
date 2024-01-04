@@ -152,3 +152,10 @@ fi
 (($+functions[.zle-copy-to-selection])) &&
     add-zsh-hook preexec .zle.copy-to-selection
 
+# pnpm
+export PNPM_HOME="/Users/fmilo/Library/pnpm"
+case ":$PATH:" in
+  *":$PNPM_HOME:"*) ;;
+  *) export PATH="$PNPM_HOME:$PATH" ;;
+esac
+# pnpm end

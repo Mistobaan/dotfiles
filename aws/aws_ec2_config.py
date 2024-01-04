@@ -1,0 +1,42 @@
+import argparse
+import boto3
+import sys
+
+
+def get_instance_ip(instance_name):
+    ec2 = boto3.resource('ec2')
+    instances = ec2.instances.filter(Filters=[{'Name': 'tag:Name', 'Values': [instance_name]}])
+    for instance in instances:
+        return instance.public_ip_address
+    return None
+
+def update_ssh_config(instance_name, new_ip):
+    ssh_config_path = '/path/to/your/ssh/config'  # Update this path as necessary
+    with open(ssh_config_path, 'r') as file:
+        lines = file.readlines()
+    
+    with open(ssh_config_path, 'w') as file:
+        instance_found = False
+        for line in lines:
+            if line.strip().startswith('Host') and instance_name in line:
+                instance_found = True
+            if instance_found and line.strip().startswith('HostName'):
+                line = f'HostName {new_ip}\n'
+                instance_found = False
+            file.write(line)
+
+def main(args):
+    new_ip = get_instance_ip(args.instance_name)
+
+    if new_ip:
+        update_ssh_config(args.instance_name, new_ip)
+        print(f"Updated SSH config for {args.instance_name} with IP {new_ip}")
+    else:
+        print("Instance not found or no public IP address available.")
+
+if __name__ == '__main__':
+    parser = argparse.ArgumentParser()
+    parser.add_argument("instance-name", help="the name of the instance on AWS")
+
+
+    main(parser.parse_args(sys.argv[1:]))
