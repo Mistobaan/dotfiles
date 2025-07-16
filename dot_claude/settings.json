@@ -1,0 +1,37 @@
+{
+  "env": {
+    "PYTHONPATH": "src:.",
+    "JUPYTER_CONFIG_DIR": "~/.jupyter",
+    "MLFLOW_TRACKING_URI": "http://localhost:5000",
+    "WANDB_PROJECT": "ml-experiments",
+    "CUDA_VISIBLE_DEVICES": "0",
+    "TOKENIZERS_PARALLELISM": "false"
+  },
+  "hooks": {
+    "pre-tool-use": {
+      "Bash": "echo 'Running command in ML environment...'"
+    },
+    "post-tool-use": {
+      "Bash": "echo 'Command completed.'"
+    }
+  },
+  "permissions": {
+    "allowedTools": [
+      "Bash",
+      "Read",
+      "Write",
+      "Edit",
+      "MultiEdit",
+      "Glob",
+      "Grep",
+      "LS",
+      "NotebookRead",
+      "NotebookEdit",
+      "WebFetch",
+      "WebSearch",
+      "Task",
+      "TodoWrite"
+    ]
+  },
+  "model": "claude-3-5-sonnet-20241022"
+}
