@@ -1,0 +1,17 @@
+{
+    "mcpServers": {
+        "github": {
+            "url": "https://api.githubcopilot.com/mcp/",
+            "authorization_token": "Bearer ${env:GITHUB_TOKEN}"
+        }
+    },
+    "env": {
+        "CLAUDE_BASH_MAINTAIN_PROJECT_WORKING_DIR": "1",
+        "CLAUDE_CODE_ENABLE_TELEMETRY": "1",
+        "OTEL_METRICS_EXPORTER": "otlp",
+        "DISABLE_BUG_COMMAND": "1",
+        "DISABLE_ERROR_REPORTING": "1",
+        "DISABLE_TELEMETRY": "1",
+        "DISABLE_NON_ESSENTIAL_MODEL_CALLS": "1",
+    }
+}
