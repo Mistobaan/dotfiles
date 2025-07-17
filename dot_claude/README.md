@@ -5,16 +5,19 @@ This directory contains optimized Claude Code configuration for machine learning
 ## Files Overview
 
 ### Core Configuration
+
 - `CLAUDE.md` - Main configuration with ML-specific guidelines, commands, and best practices
 - `settings.json` - Shared project settings with ML environment variables
 - `settings.local.json` - Personal settings template (copy and customize)
 
 ### Slash Commands
+
 - `/experiment` - Set up new ML experiment with proper structure
 - `/debug` - Debug ML models and code systematically
 - `/eda` - Perform comprehensive exploratory data analysis
 
 ### Templates
+
 - `ml_project_structure.md` - Standard ML project layout and key files
 - `notebook_template.py` - Jupyter notebook template with ML best practices
 

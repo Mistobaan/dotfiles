@@ -2,7 +2,7 @@
 
 ## Standard Data Science Project Layout
 
-```
+```text
 project_name/
 ├── README.md                   # Project overview and setup instructions
 ├── requirements.txt            # Python dependencies
@@ -11,18 +11,18 @@ project_name/
 ├── .gitignore                 # Git ignore patterns
 ├── .pre-commit-config.yaml    # Pre-commit hooks
 ├── pyproject.toml            # Project configuration
-├── 
+├──
 ├── data/                      # Data storage (not version controlled)
 │   ├── raw/                   # Original, immutable data
 │   ├── interim/              # Intermediate data transformations
 │   ├── processed/            # Final, canonical datasets
 │   └── external/             # External data sources
-├── 
+├──
 ├── notebooks/                 # Jupyter notebooks
 │   ├── exploratory/          # EDA and experimental notebooks
 │   ├── reports/              # Analysis and reporting notebooks
 │   └── prototyping/          # Model prototyping notebooks
-├── 
+├──
 ├── src/                       # Source code
 │   ├── __init__.py
 │   ├── data/                 # Data processing modules
@@ -44,42 +44,42 @@ project_name/
 │   └── utils/               # Utility functions
 │       ├── __init__.py
 │       └── helpers.py
-├── 
+├──
 ├── models/                   # Trained models and artifacts
 │   ├── checkpoints/         # Model checkpoints
 │   ├── final/              # Final trained models
 │   └── experiments/        # Experiment artifacts
-├── 
+├──
 ├── configs/                 # Configuration files
 │   ├── model_config.yaml
 │   ├── data_config.yaml
 │   └── experiment_config.yaml
-├── 
+├──
 ├── tests/                   # Unit and integration tests
 │   ├── __init__.py
 │   ├── test_data/
 │   ├── test_models/
 │   └── test_utils/
-├── 
+├──
 ├── scripts/                 # Standalone scripts
 │   ├── train.py
 │   ├── evaluate.py
 │   └── preprocess.py
-├── 
+├──
 ├── docs/                    # Documentation
 │   ├── api/
 │   ├── tutorials/
 │   └── methodology.md
-├── 
+├──
 ├── logs/                    # Log files
 │   ├── training/
 │   └── experiments/
-├── 
+├──
 ├── results/                 # Results and reports
 │   ├── figures/
 │   ├── tables/
 │   └── reports/
-└── 
+└──
 └── deployment/             # Deployment related files
     ├── docker/
     ├── kubernetes/
