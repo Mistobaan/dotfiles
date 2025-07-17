@@ -1,17 +1,37 @@
 {
-    "mcpServers": {
-        "github": {
-            "url": "https://api.githubcopilot.com/mcp/",
-            "authorization_token": "Bearer ${env:GITHUB_TOKEN}"
-        }
+  "env": {
+    "PYTHONPATH": "src:.",
+    "JUPYTER_CONFIG_DIR": "~/.jupyter",
+    "MLFLOW_TRACKING_URI": "http://localhost:5000",
+    "WANDB_PROJECT": "ml-experiments",
+    "CUDA_VISIBLE_DEVICES": "0",
+    "TOKENIZERS_PARALLELISM": "false"
+  },
+  "hooks": {
+    "pre-tool-use": {
+      "Bash": "echo 'Running command in ML environment...'"
     },
-    "env": {
-        "CLAUDE_BASH_MAINTAIN_PROJECT_WORKING_DIR": "1",
-        "CLAUDE_CODE_ENABLE_TELEMETRY": "1",
-        "OTEL_METRICS_EXPORTER": "otlp",
-        "DISABLE_BUG_COMMAND": "1",
-        "DISABLE_ERROR_REPORTING": "1",
-        "DISABLE_TELEMETRY": "1",
-        "DISABLE_NON_ESSENTIAL_MODEL_CALLS": "1",
+    "post-tool-use": {
+      "Bash": "echo 'Command completed.'"
     }
+  },
+  "permissions": {
+    "allowedTools": [
+      "Bash",
+      "Read",
+      "Write",
+      "Edit",
+      "MultiEdit",
+      "Glob",
+      "Grep",
+      "LS",
+      "NotebookRead",
+      "NotebookEdit",
+      "WebFetch",
+      "WebSearch",
+      "Task",
+      "TodoWrite"
+    ]
+  },
+  "model": "claude-3-5-sonnet-20241022"
 }
