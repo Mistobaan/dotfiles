@@ -33,6 +33,8 @@ fi
     -s workspace-write \
     --search \
     --config model_reasoning_effort="$effort" \
-    exec "$prompt"
+    exec \
+    --skip-git-repo-check \
+    "$prompt"
 } | tee >(pbcopy)
 exit ${pipestatus[1]}

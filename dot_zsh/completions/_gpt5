@@ -1,0 +1,4 @@
+#compdef gpt5
+_arguments \
+  '1:effort:(high medium low)' \
+  '*:prompt:->args'EDITOR ~/.local/share/chezmoi/dot_zsh/completions/_gpt5
