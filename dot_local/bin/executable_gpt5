@@ -1,0 +1,38 @@
+#!/usr/bin/env zsh
+set -euo pipefail
+
+usage() {
+  echo "Usage: gpt5 [high|medium|low] <prompt>"
+  echo "Default effort: medium"
+}
+
+[[ ${#@} -eq 0 ]] && { usage; exit 1; }
+
+# Detect effort flag
+effort="medium"
+case "${1:l}" in
+  high|medium|low) effort="${1:l}"; shift ;;
+  -h|--help) usage; exit 0 ;;
+esac
+
+[[ ${#@} -eq 0 ]] && { echo "Error: missing prompt."; usage; exit 1; }
+
+prompt="$*"
+
+# Ensure pbcopy exists
+if ! command -v pbcopy >/dev/null 2>&1; then
+  echo "Error: pbcopy not found." >&2
+  exit 127
+fi
+
+# Run codex, print to screen, and copy to clipboard
+# Exit with codex's status (not tee's)
+{
+  codex -m GPT5 \
+    -a on-failure \
+    -s workspace-write \
+    --search \
+    --config model_reasoning_effort="$effort" \
+    exec "$prompt"
+} | tee >(pbcopy)
+exit ${pipestatus[1]}
