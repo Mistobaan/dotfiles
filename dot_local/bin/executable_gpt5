@@ -27,14 +27,15 @@ fi
 
 # Run codex, print to screen, and copy to clipboard
 # Exit with codex's status (not tee's)
-{
-  codex -m GPT5 \
+
+codex -m GPT5 \
     -a on-failure \
     -s workspace-write \
     --search \
     --config model_reasoning_effort="$effort" \
+    --config model_verbosity="low" \
     exec \
     --skip-git-repo-check \
     "$prompt"
-} | tee >(pbcopy)
+ | tee >(pbcopy)
 exit ${pipestatus[1]}
