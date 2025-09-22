@@ -28,7 +28,7 @@ fi
 # Run codex, print to screen, and copy to clipboard
 # Exit with codex's status (not tee's)
 
-codex -m GPT5 \
+{ codex -m gpt5-codex \
     -a on-failure \
     -s workspace-write \
     --search \
@@ -37,5 +37,5 @@ codex -m GPT5 \
     exec \
     --skip-git-repo-check \
     "$prompt"
- | tee >(pbcopy)
+} 2> >(cat >&2) | tee >(pbcopy)
 exit ${pipestatus[1]}
