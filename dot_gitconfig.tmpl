@@ -5,16 +5,37 @@
 [core]
     excludesfile = ~/.gitignore_global
     compress = 6
-    editor = vim
-    autocrlf = input
+    editor =    # log left-right; requires argument like A...B (3 dots)
+    # Show log with left-right markers for comparing branches
+    lglr= log  --graph  --pretty="format:'%C(yellow)%h%Creset %Cgreen(%ar)%Creset %C(bold blue)< %an> %Creset %Cred%d%Creset %s'" --boundary --left-right --cherry-pick
+
+    # list all files
+    ls = ls-files
+
+    # list files non added
+    lsu = ls-files --other --exclude-standard
+
+    # list files ignored
+    lsi = ls-files --other --exclude-standard -i
+
+    # Show last commit
+    head = !git l -1
+    # Show last commit (alias for head)
+    h = !git head
+    # Show last commit with full patch
+    hp = git show -p --pretty=oneline
+    # Show last 20 commits
+    r = !git l -20
+    # Show last 20 commits from all branches
+    ra = !git r --all = input
+
 [diff]
     tool = vimdiff
     conflictstyle = diff3
 
 [difftool]
     prompt = false
-
-    gofmt = !gofmt -w `git diff --name-only --cached --diff-filter=AM | grep "\\.go$\"`
+    gofmt = !gofmt -w `git diff --name-only --cached --diff-filter=AM | grep "\\.go$\\"`
 
 {{- if eq .chezmoi.os "darwin" }}
 [credential]
@@ -23,8 +44,7 @@
     diffconflictstrustExitCode = true
     prompt = false
 {{- end }}
-
-[difftool "Kaleidoscope"] "araxis"]
+[difftool "Kaleidoscope"]
     # http://www.araxis.com/merge/documentation-windows/integrating-with-other-applications.en#msysGit	
     path = /Applications/Araxis Merge.app/Contents/Utilities/compare
 
@@ -66,32 +86,54 @@
     # List all the authors in the branch
     branchauthors = "! for branch in `git branch -r | grep -v HEAD`;do echo `git show --format=\"%ai %ar by %an %Cgreen($branch)%Creset \" | head -n 1` \t$branch; done | sort -r"
 
+    # Add files to staging area
     a = add
+    # Amend the last commit
     am = commit --amend
+    # Add all files including untracked
     aaa = add --all
+    # Add only modified files (no untracked)
     aa = add -u
+    # Amend last commit without changing message
     amend = commit --amend --no-edit
+    # Fetch upstream and show commits ahead
+    upcheck = !git fetch upstream && git log HEAD..upstream/master --oneline
 
+    # Show branches
     b = branch
+    # Show all branches (local and remote)
     ba = branch --all
+    # Commit staged changes
     ci = commit
+    # Commit with message
     cm = commit -m
+    # Switch to branch/commit
     co = checkout
     # ctags
     ctags = !.git/hooks/ctags
 
     # diff
+    # Show diff with copy detection
     d = diff -C # find also copies
+    # Show diff ignoring whitespace
     di = diff -C -w # find copies
+    # Show diff of staged changes
     dc = diff --cached
+    # Show diff stats of staged changes
     dcs = diff --cached -C --stat=160,120
+    # Show diff with parent commit
     dh1 = diff HEAD~1
 
+    # Start git daemon server
     serve = daemon --verbose --export-all --base-path=.git --reuseaddr --strict-paths .git/
 
+    # Show diff ignoring whitespace
     dw  = diff  -C -w
+    # Show diff stats
     ds  = diff  -C --stat
+    # Show diff stats with patches
     dsp = diff  -C --stat -p
+    # Show diff with word-level changes
     dcw = diff  -C --word-diff
     # list  conflicts
     lsc = !git diff -C --name-only --diff-filter=U
@@ -99,22 +141,32 @@
     # show the parent of the current branch
     dm = log --merge -p
 
+    # Fetch from remote
     f = fetch
+    # Fetch from all remotes
     fa = fetch --all
+    # Show status in short format
     st = status -s -b -u
+    # Force push current branch to origin
     fp = "!git push -f origin \"$(git rev-parse --abbrev-ref HEAD)\""
 
+    # Show log with graph and colored output
     l = log --abbrev-commit --graph  --date=relative --pretty="format:'%C(yellow)%h%Creset %Cgreen(%ar)%Creset %C(bold blue)< %an> %Creset %Cred%d%Creset %s'" --decorate
+    # Show log for all branches
     la = !git l --all
+    # Show log with stats and summary
     ll = !git l --pretty="format:'%C(yellow)%h%Creset %Cgreen(%ar)%Creset %C(bold blue)< %an> %Creset %Cred%d%Creset %s'" --stat --summary
 
     # this is the most commonly used one, it turns out!
+    # Show last 19 commits
     l19 = !git l -19
 
     # and this one can be a real lifesaver on a complex tree
+    # Show log for all branches with simplified decoration
     lsd = log   --graph --pretty="format:'%C(yellow)%h%Creset %Cgreen(%ar)%Creset %C(bold blue)< %an> %Creset %Cred%d%Creset %s'" --all --simplify-by-decoration
 
     # log left-right; requires argument like A...B (3 dots)
+    # Show log with left-right markers for comparing branches
     lglr= log  --graph  --pretty="format:'%C(yellow)%h%Creset %Cgreen(%ar)%Creset %C(bold blue)< %an> %Creset %Cred%d%Creset %s'" --boundary --left-right --cherry-pick
 
     # list all files
@@ -131,36 +183,57 @@
     hp = git show -p --pretty=oneline
     r = !git l -20
     ra = !git r --all
+    # Show reflog with relative dates
     ref = reflog show --date=relative
+    # Show reflog for last hour
     refnow = reflog show --date=relative --since='1 hour'
+    # Merge only if fast-forward possible
     ff = merge --ff-only
+    # Pull only if fast-forward possible
     pullff = pull --ff-only
+    # Merge with merge commit (no fast-forward)
     noff = merge --no-ff
 
+    # List stashed changes
     sl  = stash list
+    # Pop (apply and remove) latest stash
     sp  = stash pop
+    # Save current changes to stash
     ss  = stash save
     # "show-branch -g=N" can't be aliased for N easily, so we stop here:
     sb  = show-branch
     # pg sbt master pu -- if the last line is 'master' and not 'master^'
     # or 'master~N' then pu is a descendent of master
     sbt = show-branch --topics
+    # Show branch topology with SHA1 names
     sbs = show-branch --sha1-name
 
+    # Generate GraphViz dot file for commit graph
     graphviz = "!f() { echo 'digraph git {' ; git log --pretty='format: %h -> { %p }' \"$@\" | sed 's/[0-9a-f][0-9a-f]*/\"&\"/g' ; echo '}'; }; f"
 
+    # Show what changed in commits with patches
     wtf = whatchanged --pretty="format:'%C(yellow)%h%Creset %Cgreen(%ar)%Creset %C(bold blue)< %an> %Creset %Cred%d%Creset %s'" -p
+    # Show what changed in last commit
     wtf1 = !git wtf -n 1
 
+    # Format Go files that are staged for commit
     gofmt = !gofmt -w `git diff --name-only --cached --diff-filter=AM | grep \"\\.go$\"`
 
+    # Show commit summary (one line per commit)
     summary = log --pretty=oneline
+    # Show commit tree with graph
     tree    = log --graph --pretty=oneline --abbrev-commit --decorate --color
+    # Show tree for all branches
     forest  = !git tree --all
+    # Show recent 10 commits in tree format
     recent  = !git tree -10
+    # Show commit message of last commit
     message = log --format=format:%s -1
+    # Show hash of last commit
     last    = log --format=format:%H -1
+    # Show all commit hashes
     revs    = log --format=format:%H
+    # Preview staged changes
     preview = diff --staged
 
     # git codereview
@@ -171,6 +244,7 @@
     submit = codereview submit
     sync = codereview sync
 
+    # Remove merged branches except master/develop
     cleanup = "!git branch --merged | egrep -v '^.*master' | egrep -v '^.*develop' | xargs -n 1 git branch -d"
 
 [credential]
