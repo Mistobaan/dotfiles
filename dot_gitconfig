@@ -14,7 +14,17 @@
 [difftool]
     prompt = false
 
-[difftool "araxis"]
+    gofmt = !gofmt -w `git diff --name-only --cached --diff-filter=AM | grep "\\.go$\"`
+
+{{- if eq .chezmoi.os "darwin" }}
+[credential]
+    helper = osxkeychain
+    keepBackup = false
+    diffconflictstrustExitCode = true
+    prompt = false
+{{- end }}
+
+[difftool "Kaleidoscope"] "araxis"]
     # http://www.araxis.com/merge/documentation-windows/integrating-with-other-applications.en#msysGit	
     path = /Applications/Araxis Merge.app/Contents/Utilities/compare
 
@@ -260,11 +270,10 @@
 
 [credential]
     helper = osxkeychain
-
-
     keepBackup = false
     diffconflictstrustExitCode = true
     prompt = false
+
 [difftool "Kaleidoscope"]
     cmd = ksdiff --partial-changeset --relative-path \"$MERGED\" -- \"$LOCAL\" \"$REMOTE\"
 [mergetool "Kaleidoscope"]
