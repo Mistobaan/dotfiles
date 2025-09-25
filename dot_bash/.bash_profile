@@ -21,7 +21,7 @@ export CPATH+=":/usr/local/include"
 export PATH=$(brew --prefix coreutils)/libexec/gnubin:$PATH
 
 #export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
-#[[ -s "/Users/fabrizio/.rvm/scripts/rvm" ]] && source "/Users/fabrizio/.rvm/scripts/rvm" 
+#[[ -s "/Users/fabrizio/.rvm/scripts/rvm" ]] && source "/Users/fabrizio/.rvm/scripts/rvm"
 
 #  Customize BASH PS1 prompt to show current GIT repository and branch.
 #  by Mike Stewart - http://MediaDoneRight.com
@@ -162,5 +162,3 @@ export DOCKER_HOST=tcp://$(boot2docker ip || :):2375
 # Go default config
 gvm use go1.3
 gvm pkgset use default
-
-

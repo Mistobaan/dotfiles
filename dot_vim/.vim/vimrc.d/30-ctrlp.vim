@@ -27,4 +27,3 @@ let g:ctrlp_mruf_max = 10
 
 " dont remember these files
 let g:ctrlp_mruf_exclude = '/tmp/.*\|/temp/.*' " MacOSX/Linux
-

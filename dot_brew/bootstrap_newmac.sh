@@ -31,12 +31,12 @@ binaries=(
   #ffmpeg
   #python
   #sshfs
-  trash # http://hasseg.org/trash/ move to trash 
-  node  # 
-  tree  # 
+  trash # http://hasseg.org/trash/ move to trash
+  node  #
+  tree  #
   ack   # faster search
   hub   # list issues from command line
-  git   # :) 
+  git   # :)
 )
 
 echo "installing binaries..."
@@ -68,7 +68,7 @@ mac_finder_extensions=(
   spotify
   vagrant
   flash # flash player
-  shiori 
+  shiori
   sublime-text2
   virtualbox
   atom
@@ -98,6 +98,3 @@ fonts=(
 # install fonts
 echo "installing fonts..."
 brew cask install ${fonts[@]}
-
-
-

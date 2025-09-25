@@ -127,7 +127,7 @@ set list
 set listchars=trail:·,tab:▷·,precedes:«,extends:»,eol:↵
 
 " String to put at the start of lines that have been wrapped.
-set showbreak=↳\ 
+set showbreak=↳\
 
 " When included, the column used for 'number' and
 " 'relativenumber' will also be used for text of wrapped
@@ -199,7 +199,7 @@ set ignorecase
 " 'ignorecase' option is on.
 set smartcase
 
-" 
+"
 set infercase
 
 " While typing a search command, show where the pattern, as it was typed

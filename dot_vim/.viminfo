@@ -87,7 +87,7 @@ $
 
 # Registers:
 "0	LINE	0
-	
+
 ""1	CHAR	0
 	command Pyflakes :call Pyflakes()
 	function! Pyflakes()
@@ -98,11 +98,11 @@ $
 	    cw
 	endfunction
 "2	LINE	0
-	
+
 "3	LINE	0
-	
+
 "4	LINE	0
-	
+
 "5	LINE	0
 	    parser.add_argument('--raw', action='store_true', default=False, help='outbut the raw response')
 	    parser.add_argument('params', metavar='p', nargs='*',

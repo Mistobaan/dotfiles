@@ -30,7 +30,7 @@ endfunction
 
 function! GitQuickCommit()
 
-    if ! (exists("g:git_quick_commit_branch") 
+    if ! (exists("g:git_quick_commit_branch")
                 \ || exists("g:git_quick_commit_max_completions"))
         return
     endif

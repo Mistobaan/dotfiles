@@ -13,4 +13,3 @@ endfun
 noremap <silent> <c-]> :call MatchCaseTag()<CR>
 
 nnoremap ,cd :cd %:p:h<CR>:pwd<CR>
-

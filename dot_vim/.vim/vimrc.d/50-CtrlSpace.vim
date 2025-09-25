@@ -31,4 +31,3 @@ let g:CtrlSpaceSaveWorkspaceOnExit = 1
 let g:CtrlSpaceSetDefaultMapping = 1
 
 let g:CtrlSpaceDefaultMappingKey = "<C-Space>"
-

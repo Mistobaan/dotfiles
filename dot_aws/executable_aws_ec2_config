@@ -15,7 +15,7 @@ def update_ssh_config(instance_name, new_ip):
     ssh_config_path = '/path/to/your/ssh/config'  # Update this path as necessary
     with open(ssh_config_path, 'r') as file:
         lines = file.readlines()
-    
+
     with open(ssh_config_path, 'w') as file:
         instance_found = False
         for line in lines:

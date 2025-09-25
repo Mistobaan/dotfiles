@@ -1,6 +1,6 @@
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
-# BEGIN chezmoi 
+# BEGIN chezmoi
 # Ensure ~/.local/bin is on PATH
 [[ ":$PATH:" == *":$HOME/.local/bin:"* ]] || export PATH="$HOME/.local/bin:$PATH"
 
@@ -10,7 +10,7 @@ autoload -Uz compinit
 if ! typeset -f _comps >/dev/null 2>&1; then
   compinit
 fi
-# END chezmoi 
+# END chezmoi
 
 # Path to your oh-my-zsh installation.
 export ZSH="$HOME/.oh-my-zsh"
@@ -142,7 +142,7 @@ export NVM_DIR="$HOME/.nvm"
 [ -s "/usr/local/opt/nvm/etc/bash_completion.d/nvm" ] && \. "/usr/local/opt/nvm/etc/bash_completion.d/nvm"  # This loads nvm bash_completion
 
 
-#configure the less tool to not exhibit this particular behavior unless the output in question is at least a full console window worth of output. 
+#configure the less tool to not exhibit this particular behavior unless the output in question is at least a full console window worth of output.
 export PAGER="less"
 export LESS="-F -X -R"
 

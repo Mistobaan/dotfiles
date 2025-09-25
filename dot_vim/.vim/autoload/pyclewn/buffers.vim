@@ -240,4 +240,3 @@ function s:goto_window(fname, lnum)
         call cursor(a:lnum, 0)
     endif
 endfunction
-

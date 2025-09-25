@@ -9,5 +9,3 @@ let g:ConqueTerm_FastMode = 1
 "Display warning messages when starting up ConqueTerm if your system is
 "configured incorrectly.
 let g:ConqueTerm_StartMessages = 1
-
-

@@ -10,4 +10,4 @@ let g:VimuxHeight = "40"
 function! VimuxSlime()
   call VimuxSendText(@v)
   call VimuxSendKeys("Enter")
-endfunction 
+endfunction

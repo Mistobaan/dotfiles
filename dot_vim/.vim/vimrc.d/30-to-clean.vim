@@ -116,7 +116,7 @@
 " " let g:syntastic_mode_map = { 'mode': 'passive', 'active_filetypes': [],'passive_filetypes': [] }
 " " nnoremap <C-w>E :SyntasticCheck<CR> :SyntasticToggleMode<CR>
 
-" " " use python 
+" " " use python
 " " let g:syntastic_python_checkers = ['pylint']
 
 " " " use pylintrc
@@ -243,4 +243,3 @@
 
 " com! DiffSaved call DiffWithSaved()
 " map <Leader>ds :DiffSaved<CR>
-

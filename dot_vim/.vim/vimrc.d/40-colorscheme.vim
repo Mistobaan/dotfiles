@@ -19,4 +19,3 @@ hi CursorLine term=bold cterm=bold guibg=Grey40
 
 hi CursorLine   cterm=underline ctermbg=229 ctermfg=NONE
 hi CursorColumn  cterm=NONE ctermbg=254 ctermfg=NONE
-

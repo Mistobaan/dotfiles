@@ -77,4 +77,3 @@ set list listchars=tab:→\ ,trail:·,extends:>,precedes:<,nbsp:_
 
 autocmd FileType python &let makeprg=pylint\ --reports=n\ --msg-template=\"{path}:{line}:\ {msg_id}\ {symbol},\ {obj}\ {msg}\"\ %:p
 autocmd FileType python &set errorformat=%f:%l:\ %m
-

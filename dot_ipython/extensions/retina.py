@@ -47,17 +47,17 @@ def enable_retina(ip):
     """enable retina figures"""
     from matplotlib.figure import Figure
 
-    
+
     # unregister existing formatter(s):
     png_formatter = ip.display_formatter.formatters['image/png']
     png_formatter.type_printers.pop(Figure, None)
     svg_formatter = ip.display_formatter.formatters['image/svg+xml']
     svg_formatter.type_printers.pop(Figure, None)
-    
+
     # register png2x as HTML formatter
     html_formatter = ip.display_formatter.formatters['text/html']
     html_formatter.for_type(Figure, png2x)
-    
+
 
 # load the extension:
 loaded = False
@@ -71,4 +71,3 @@ def load_ipython_extension(ip):
         enable_retina(ip)
     except Exception as e:
         print "Failed to load retina extension: %s" % e
-

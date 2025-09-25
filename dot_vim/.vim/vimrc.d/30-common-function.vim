@@ -9,4 +9,3 @@ function! SaveSession() "only save session if there exists one already
     mksession! Session.vim
   endif
 endfunction
-

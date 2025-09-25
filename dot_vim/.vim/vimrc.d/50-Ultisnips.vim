@@ -1,7 +1,7 @@
 " " UltiSnips completion function that tries to expand a snippet. If there's no
 " " snippet for expanding, it checks for completion window and if it's
 " " shown, selects first element. If there's no completion window it tries to
-" " jump to next placeholder. If there's no placeholder it just returns TAB key 
+" " jump to next placeholder. If there's no placeholder it just returns TAB key
 " function! g:UltiSnips_Complete()
 "     call UltiSnips_ExpandSnippet()
 "     if g:ulti_expand_res == 0
@@ -18,12 +18,12 @@
 " endfunction
 
 " function! g:UltiSnips_Reverse()
-"   call UltiSnips#JumpBackwards()                                                                                              
-"   if g:ulti_jump_backwards_res == 0        
-"     return "\<C-P>"                                                                                                           
-"   endif                                                                                                                       
+"   call UltiSnips#JumpBackwards()
+"   if g:ulti_jump_backwards_res == 0
+"     return "\<C-P>"
+"   endif
 
-"   return ""                                                                                                                   
+"   return ""
 " endfunction
 
 
@@ -74,4 +74,3 @@ inoremap <expr> <CR> pumvisible() ? "<C-R>=ExpandSnippetOrCarriageReturn()<CR>" 
 " endfunction
 
 " "inoremap <expr> <CR> pumvisible() ? "<C-R>=<SID>ExpandSnippetOrReturn()<CR>" : "\<CR>"
-

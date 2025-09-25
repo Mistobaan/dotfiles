@@ -45,7 +45,7 @@
     prompt = false
 {{- end }}
 [difftool "Kaleidoscope"]
-    # http://www.araxis.com/merge/documentation-windows/integrating-with-other-applications.en#msysGit	
+    # http://www.araxis.com/merge/documentation-windows/integrating-with-other-applications.en#msysGit
     path = /Applications/Araxis Merge.app/Contents/Utilities/compare
 
 [github]
@@ -73,8 +73,8 @@
 
 
 [branch "develop"]
-    mergeoptions=--no-ff    
-    
+    mergeoptions=--no-ff
+
 [color]
     ui = auto
     diff = auto
@@ -248,10 +248,10 @@
     cleanup = "!git branch --merged | egrep -v '^.*master' | egrep -v '^.*develop' | xargs -n 1 git branch -d"
 
 [credential]
-    helper = cache 
+    helper = cache
 [difftool "sourcetree"]
     cmd = opendiff \"$LOCAL\" \"$REMOTE\"
-    path = 
+    path =
 
 [mergetool "sourcetree"]
     cmd = /Applications/SourceTree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
@@ -288,7 +288,7 @@
     dcw = diff  -C --word-diff
     dt = difftool
     # list  conflicts
-    lsc = !git diff -C --name-only --diff-filter=U 
+    lsc = !git diff -C --name-only --diff-filter=U
 
     # show the parent of the current branch
     dm = log --merge -p
@@ -297,7 +297,7 @@
     fa = fetch --all
     st = status -s -b -u
 
-    l = log --abbrev-commit --graph  --date=relative --pretty="format:'%C(yellow)%h%Creset %Cgreen(%ar)%Creset %C(bold blue)< %an> %Creset %Cred%d%Creset %s'" --decorate 
+    l = log --abbrev-commit --graph  --date=relative --pretty="format:'%C(yellow)%h%Creset %Cgreen(%ar)%Creset %C(bold blue)< %an> %Creset %Cred%d%Creset %s'" --decorate
     la = !git l --all
     ll = !git l --pretty="format:'%C(yellow)%h%Creset %Cgreen(%ar)%Creset %C(bold blue)< %an> %Creset %Cred%d%Creset %s'" --stat --summary
     # this is the most commonly used one, it turns out!
@@ -307,18 +307,18 @@
     # log left-right; requires argument like A...B (3 dots)
     lglr= log  --graph  --pretty="format:'%C(yellow)%h%Creset %Cgreen(%ar)%Creset %C(bold blue)< %an> %Creset %Cred%d%Creset %s'" --boundary --left-right --cherry-pick
 
-    ls = ls-files 
+    ls = ls-files
 
     # list files non added
     lsu = ls-files --other --exclude-standard
     # list files ignored
     lsi = ls-files --other --exclude-standard -if
 
-    head = !git l -1 
+    head = !git l -1
     h = !git head
     hp = git show -p --pretty=oneline
     r = !git l -20
-    ra = !git r --all    
+    ra = !git r --all
     ref = reflog show --date=relative
     refnow = reflog show --date=relative --since='1 hour'
     ff = merge --ff-only
@@ -355,7 +355,7 @@
     trustExitCode = true
 [difftool "sourcetree"]
     cmd = opendiff \"$LOCAL\" \"$REMOTE\"
-    path = 
+    path =
 [mergetool "sourcetree"]
     cmd = /Applications/SourceTree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
     trustExitCode = true

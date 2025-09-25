@@ -34,4 +34,3 @@ highlight clear SignColumn
 
 " vim-gitgutter will use Sign Column to set its color, reload it.
 call gitgutter#highlight#define_highlights()
-
